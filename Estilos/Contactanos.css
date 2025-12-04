@@ -17,6 +17,7 @@
     overflow: hidden; 
     box-shadow: 0 2px 8px rgba(255,255,255,0.2) inset, 0 2px 6px rgba(0,0,0,0.1);
     margin-top: 0;
+    
 }
 
 
@@ -109,4 +110,78 @@
 
 #navegacion nav ul li a:hover {
     color: #2d538b;
+}
+
+
+#secCont {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 25px;
+    padding-top: 180px;
+    padding-left: 5%;
+}
+
+/* ========================================= */
+/*          CAJA DE CADA CONTACTO           */
+/* ========================================= */
+
+#AreaDiv {
+    position: relative;
+    width: 380px;
+    text-align: center;
+}
+
+/* Ocultar el checkbox */
+#AreaDiv input[type="checkbox"] {
+    display: none;
+}
+
+/* Botón (label) */
+#AreaDiv #labelC {
+    display: block;
+    padding: 12px 20px;
+    background: #5b67ac;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+#AreaDiv #labelC:hover {
+    background: #46539e;
+    transform: translateY(-2px);
+}
+
+/* ========================================= */
+/*           CAJITA DE INFORMACIÓN          */
+/* ========================================= */
+
+#AreaDiv #infoDiv {
+    margin-top: 8px;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 15px;
+    color: #333;
+
+    /* Oculta inicialmente */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.35s ease;
+}
+
+/* Mostrar cuando el checkbox está activado */
+#AreaDiv input:checked + #labelC + #infoDiv {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 12px;
 }
