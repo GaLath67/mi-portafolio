@@ -27,22 +27,73 @@
             </ul>
         </nav>
     </header>
-<section>
-<h2>Venta</h2>
-<section>
-    <h2>Mi Anuncio</h2>
-    <div>
-        <div>
+<section id="SecVenta">
 
-        </div>  
-    </div>     
-</section>   
-<section>
-    <h2>Otros anuncios</h2>
-    <div>
+
+    <h2 id="TituloMiAnuncio">Mi Anuncio</h2>
+
+    <div id="DivMiAnuncioContenedor">
+
+
+        <div id="DivMiAnuncioImg">
+            <p id="TextoSubeImg"></p>
+        </div>
+
+        <form id="FormMiAnuncio">
+            <label>Título:</label>
+            <input id="InputTitulo" type="text">
+
+            <label>Descripción:</label>
+            <input id="InputDescripcion" type="text">
+
+            <label>Precio:</label>
+            <input id="InputPrecio" type="number">
+
+            <label>Ubicación:</label>
+            <input id="InputUbicacion" type="text">
+        </form>
 
     </div>
-</section>   
+
+
+    <h2 id="TituloOtrosAnuncios">Otros anuncios</h2>
+
+
+    <select id="SelectOtrosFiltros">
+        <option>Autos</option>
+        <option>Camiones</option>
+        <option>Motos</option>
+        <option>Repuestos</option>
+        <option>Varios</option>
+    </select>
+
+
+    <div id="DivOtrosAnunciosTarjeta">
+
+
+        <div id="DivOtrosImg">
+            <p id="TextoImgOtros"></p>
+        </div>
+
+
+        <button id="Flechabot">➤</button>
+
+        <form id="FormOtrosInfo">
+            <label>Modelo:</label>
+            <input id="InputModelo" type="text" value="Toyota Hilux">
+
+            <label>Año:</label>
+            <input id="InputAnio" type="text" value="2020">
+
+            <label>Precio:</label>
+            <input id="InputPrecioOtros" type="text" value="$23,000">
+
+            <label>Estado:</label>
+            <input id="InputEstado" type="text" value="Disponible">
+        </form>
+
+    </div>
+
 </section>
     
 </body>

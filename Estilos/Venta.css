@@ -110,3 +110,96 @@
 #navegacion nav ul li a:hover {
     color: #2d538b;
 }
+
+#SecVenta{
+    padding: 40px 20px;
+    background-color:#ffffff;
+    text-align: left;
+    padding-top: 150px;
+    height: 600px;
+}
+
+
+#DivMiAnuncioContenedor {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+
+#TituloMiAnuncio {
+ margin-left: 373px;
+ font-size: 1.5rem;
+ margin-bottom: 20px;
+ color: #070707;
+}
+
+
+#DivMiAnuncioImg {
+    width: 330px;
+    height: 230px;
+    background: #203060;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+#FormMiAnuncio {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    gap: 8px;
+}
+
+
+#TituloOtrosAnuncios
+{
+    padding-top: 50px;
+    size: 1.5rem;
+    margin-left: 370px;
+    margin-bottom: 20px;
+}
+
+
+#SelectOtrosFiltros{
+    border-radius: 10px;
+    margin-left: 373px;
+    
+}
+
+#DivOtrosAnunciosTarjeta {
+    margin-top: 20px;
+    background: #e0e0e0;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 370px;
+    max-width: 650px;
+}
+
+#DivOtrosImg {
+    width: 330px;
+    height: 230px;
+    background: rgba(14, 14, 14, 0.514);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+#FormOtrosInfo {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    gap: 6px;
+
+}
