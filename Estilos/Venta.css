@@ -166,41 +166,21 @@
 }
 
 
-#SelectOtrosFiltros{
-    border-radius: 10px;
-    margin-left: 373px;
-    
-}
 
-#DivOtrosAnunciosTarjeta {
-    margin-top: 20px;
-    background: #e0e0e0;
-    padding: 15px;
-    border-radius: 12px;
+#DivCarrusel{
+    margin-left:370px; 
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-    margin-left: 370px;
-    max-width: 650px;
+background-color: gray;
+max-width: 660px;
+height: 270px;
+border-radius: 2rem;
 }
-
-#DivOtrosImg {
-    width: 330px;
-    height: 230px;
-    background: rgba(14, 14, 14, 0.514);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
 
 #FormOtrosInfo {
     display: flex;
     flex-direction: column;
     width: 220px;
     gap: 6px;
-
+    margin-left: 255px;
 }
