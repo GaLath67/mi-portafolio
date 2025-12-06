@@ -6,6 +6,7 @@
     <title>Document</title>
         <link rel="stylesheet" href="Estilos/Direcciones.css">
 </head>
+
 <body>
  <header id="navegacion">
         <img id="icono" src="logo.png" alt="Logo Track or Truck">
@@ -27,18 +28,33 @@
             </ul>
         </nav>
     </header>
- <section id="secDirec">
-
-
-    <input type="text" id="inMarca" placeholder="Ingresa la marca">
-    <div id="mapFon">
-        <div id="mapa"></div>
-    </div>
-
-    <select id="selUbic">
-        <option value="" disabled selected>Selecciona una ubicación</option>
+<section id="secDirec">
+    <select id="marca">
+        <option value="" disabled selected>Selecciona una marca</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Honda">Honda</option>
+        <option value="Hyundai">Hyundai</option>
+        <option value="Ford">Ford</option>
+        <option value="Chevrolet">Chevrolet</option>
+        <option value="Nissan">Nissan</option>
+        <option value="Kia">Kia</option>
+        <option value="Volkswagen">Volkswagen</option>
+        <option value="Suzuki">Suzuki</option>
+        <option value="Renault">Renault</option>
     </select>
 
+    <div id="mapFon">
+        <div id="mapa" style="width:100%; height:55vh;"></div>
+    </div>
+
+    <select id="sucursal">
+        <option value="" disabled selected>Selecciona una sucursal</option>
+    </select>
 </section>
+<script src="Java/Direcciones.js">
+</script>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZ6vmhX2RTAej3m-72_OSYTqF47Eq68A&callback=initMap">
+</script>
 </body>
 </html>
