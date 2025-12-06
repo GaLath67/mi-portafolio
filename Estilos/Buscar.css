@@ -149,9 +149,9 @@
     box-shadow: 0 6px 10px rgba(0,0,0,0.3);
 }
 
+
 #AutoAPI {
-    width: 100%;
-    max-width: 400px;
+    width: 400px; 
     height: 200px;
     background-color: #777;
     border-radius: 10px;
@@ -185,6 +185,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    max-height: 250px; 
+    overflow-y: auto;  
 }
 
 #listaDatos {
@@ -194,6 +196,20 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-right: 10px; 
+    list-style: square;
+    margin-left: 16px;
+}
+
+#inpModelo
+{
+    width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    background-color: #333;
+    color: #fff;
 }
 
 
