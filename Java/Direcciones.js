@@ -1,62 +1,42 @@
+const sucursalPorMarca = {
+    "Toyota": { lat: -16.522480, lng: -68.111770 },        // Toyota Calacoto
+    "Honda": { lat: -16.509830, lng: -68.128300 },         // Honda Sopocachi
+    "Hyundai": { lat: -16.503700, lng: -68.119300 },       // Hyundai Miraflores
+    "Ford": { lat: -16.527900, lng: -68.121900 },          // Ford Obrajes
+    "Chevrolet": { lat: -16.524700, lng: -68.108900 },     // Chevrolet Calacoto
+    "Nissan": { lat: -16.509200, lng: -68.124100 },        // Nissan Sopocachi
+    "Kia": { lat: -16.530700, lng: -68.109600 },           // Kia Mall Ventura
+    "Volkswagen": { lat: -16.523900, lng: -68.111200 },    // VW Calacoto
+    "Suzuki": { lat: -16.509100, lng: -68.123400 },        // Suzuki Sopocachi
+    "Renault": { lat: -16.530600, lng: -68.110100 }        // Renault Mall Ventura
+};
 
-    const sucursalesPorMarca = {
-        "Toyota": ["Toyota Calacoto", "Toyota Irpavi", "Toyota Achumani"],
-        "Honda": ["Honda Calacoto", "Honda Sopocachi"],
-        "Hyundai": ["Hyundai Miraflores", "Hyundai Mall Ventura"],
-        "Ford": ["Ford Obrajes", "Ford Irpavi"],
-        "Chevrolet": ["Chevrolet Calacoto", "Chevrolet Achumani"],
-        "Nissan": ["Nissan Sopocachi", "Nissan Miraflores"],
-        "Kia": ["Kia Mall Ventura", "Kia Obrajes"],
-        "Volkswagen": ["Volkswagen Calacoto", "Volkswagen Achumani"],
-        "Suzuki": ["Suzuki Sopocachi", "Suzuki Miraflores"],
-        "Renault": ["Renault Mall Ventura", "Renault Obrajes"]
-    };
+const marca = document.getElementById("marca");
+let mapa;
+let punto;
 
-    const marca = document.getElementById("marca");
-    const sucursal = document.getElementById("sucursal");
-    let mapa;
-    let marcador;
-
-    function initMap() {
-        mapa = new google.maps.Map(document.getElementById("mapa"), {
-            center: { lat: -16.5000, lng: -68.1500 },
-            zoom: 12
-        });
-    }
-
-    function cargarSucursales() {
-        const m = marca.value;
-        sucursal.innerHTML = '<option value="" disabled selected>Selecciona una sucursal</option>';
-        if (sucursalesPorMarca[m]) {
-            sucursalesPorMarca[m].forEach(s => {
-                const opt = document.createElement("option");
-                opt.value = s;
-                opt.textContent = s;
-                sucursal.appendChild(opt);
-            });
-        }
-    }
-
-    function mostrarSucursalEnMapa(direc) {
-        const geocodificador = new google.maps.Geocoder();
-        geocodificador.geocode({ address: direc + ", La Paz, Bolivia" }, (resultados, status) => {
-            if (status === "OK") {
-                mapa.setCenter(resultados[0].geometry.location);
-                if (marcador) marcador.setMap(null);
-                marcador = new google.maps.Marker({
-                    map: mapa,
-                    position: resultados[0].geometry.location
-                });
-            } else {
-                alert("No se pudo encontrar la ubicación: " + status);
-            }
-        });
-    }
-
-    marca.addEventListener("change", () => {
-        cargarSucursales();
-        sucursal.selectedIndex = 1; // opcional: seleccionar la primera automáticamente
-        if (sucursal.value) mostrarSucursalEnMapa(sucursal.value);
+function initMap() {
+    mapa = new google.maps.Map(document.getElementById("mapa"), {
+        center: { lat: -16.5000, lng: -68.1500 },
+        zoom: 12
     });
+}
 
-    sucursal.addEventListener("change", () => mostrarSucursalEnMapa(sucursal.value));
+function verSucursal(coords) {
+    mapa.setCenter(coords);
+
+    if (punto) punto.setMap(null);
+
+    punto = new google.maps.Marker({
+        map: mapa,
+        position: coords
+    });
+}
+
+marca.addEventListener("change", () => {
+    const m = marca.value;
+
+    if (sucursalPorMarca[m]) {
+        verSucursal(sucursalPorMarca[m]);
+    }
+});

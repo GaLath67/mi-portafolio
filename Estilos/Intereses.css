@@ -134,7 +134,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     padding: 20px 60px; 
-    max-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
     position: relative;
     display: flex;
@@ -144,24 +144,31 @@
 
 #menuInt {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
     gap: 15px;
-    padding-bottom: 20px;
+    overflow-x: auto;
     scroll-behavior: smooth;
-}
-
-#menuInt div {
-    min-width: 200px;
-    height: 200px;
-    background-color: #ccc; 
-    border-radius: 10px;
-    flex: 0 0 auto;
-    scroll-snap-align: center;
+    padding: 10px;
+    width: 80%;
 }
 
 #menuInt::-webkit-scrollbar {
-    display: none;
+    height: 8px;
+}
+
+#menuInt::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 4px;
+}
+
+.interesItem {
+    width: 180px;
+    text-align: center;
+}
+
+.imgInteres {
+    width: 180px;
+    height: 120px;
+    border-radius: 8px;
 }
 
 
@@ -205,4 +212,10 @@
 
 #indicadores div#active {
     background-color: #222;
+}
+
+.interesItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

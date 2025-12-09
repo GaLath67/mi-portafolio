@@ -14,12 +14,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
     file.accept = "image/*";
     divImg.appendChild(file);
 
+    let currentImageData = "";
+
     file.addEventListener("change", e=>{
         const f = e.target.files[0];
         if(f){
             const r = new FileReader();
             r.onload = ev=>{
-                divImg.style.backgroundImage = `url(${ev.target.result})`;
+                currentImageData = ev.target.result;
+                divImg.style.backgroundImage = `url(${currentImageData})`;
                 divImg.style.backgroundSize = "cover";
                 divImg.style.backgroundPosition = "center";
             };
@@ -28,8 +31,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 
     let anuncios = [
-        {img:"auto1.jpg", mod:"Honda Civic", prec:"$18,000", desc:"Excelente estado", cont:"juan@mail.com"},
-        {img:"auto2.jpg", mod:"Ford Ranger", prec:"$25,000", desc:"Camioneta lista para trabajo", cont:"maria@mail.com"}
+        {img:"Imagenes/auto1.jpg", mod:"Honda Civic", prec:"$18,000", desc:"Excelente estado", cont:"juan@mail.com"},
+        {img:"Imagenes/auto2.jpg", mod:"Ford Ranger", prec:"$25,000", desc:"Camioneta lista para trabajo", cont:"maria@mail.com"}
     ];
 
     function crearAnuncio(a){
@@ -38,11 +41,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
         div.style.display = "none";
 
         const imgDiv = document.createElement("div");
-        imgDiv.id="DivOtrosImg";
+        imgDiv.classList.add("DivOtrosImg");
         imgDiv.style.background = `url(${a.img}) no-repeat center/cover`;
+        imgDiv.style.backgroundSize = "cover";
+        imgDiv.style.backgroundPosition = "center";
 
         const f = document.createElement("form");
-        f.id="FormOtrosInfo";
+        f.id = "FormOtrosInfo";
         f.innerHTML = `
             <label>Modelo y Marca:</label><input type="text" value="${a.mod}" readonly>
             <label>Precio:</label><input type="text" value="${a.prec}" readonly>
@@ -54,12 +59,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         carrusel.appendChild(div);
     }
 
-    anuncios.forEach(a=>crearAnuncio(a));
+    anuncios.forEach(a => crearAnuncio(a));
 
     let currentIndex = 0;
     function mostrarActual(){
         const divs = carrusel.querySelectorAll(".DivOtrosAnunciosTarjeta");
-        divs.forEach((d,i)=>d.style.display = i===currentIndex ? "flex" : "none");
+        divs.forEach((d,i) => d.style.display = i === currentIndex ? "flex" : "none");
     }
     mostrarActual();
 
@@ -67,6 +72,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         currentIndex = (currentIndex - 1 + anuncios.length) % anuncios.length;
         mostrarActual();
     });
+
     next.addEventListener("click", ()=>{
         currentIndex = (currentIndex + 1) % anuncios.length;
         mostrarActual();
@@ -74,18 +80,28 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     btn.addEventListener("click", ()=>{
         if(!mod.value || !prec.value) return;
+
+        let finalImg = currentImageData || "Imagenes/default-car.jpg";
+
         const a = {
-            img: divImg.style.backgroundImage.slice(5,-2) || "auto-user.jpg",
+            img: finalImg,
             mod: mod.value,
             prec: prec.value,
             desc: desc.value,
             cont: cont.value
         };
+
         anuncios.push(a);
         crearAnuncio(a);
-        currentIndex = anuncios.length-1;
+        currentIndex = anuncios.length - 1;
         mostrarActual();
-        mod.value=""; prec.value=""; desc.value=""; cont.value=""; divImg.style.backgroundImage=""; file.value="";
+
+        mod.value = "";
+        prec.value = "";
+        desc.value = "";
+        cont.value = "";
+        divImg.style.backgroundImage = "#0E223A";
+        file.value = "";
+        currentImageData = "";
     });
 });
-

@@ -212,4 +212,21 @@
     color: #fff;
 }
 
+#meGusta {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #0E223A;
+    color: white;
+    transition: 0.2s;
+    display: block;
+}
+
+#meGusta:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
 

@@ -7,7 +7,7 @@ inpBusc.addEventListener('change', async () => {
     const marca = inpBusc.value.trim();
     AutoAPI.style.backgroundImage = '';
     listaDatos.innerHTML = '';
-    inpModelo.style.display = 'none';
+    inpModelo.style.display = 'flex';
     
     if (!marca) return;
 
@@ -27,7 +27,7 @@ inpBusc.addEventListener('change', async () => {
             listaDatos.appendChild(li);
         });
 
-        inpModelo.style.display = 'inline-block';
+        inpModelo.style.display = 'flex';
 
     } catch (err) {
         listaDatos.innerHTML = '<li>Error al cargar modelos</li>';
@@ -67,3 +67,51 @@ inpModelo.addEventListener('change', async () => {
 
 });
 
+const meGustaBtn = document.getElementById('meGusta');
+
+inpModelo.addEventListener('change', async () => {
+    const marca = inpBusc.value.trim();
+    const modelo = inpModelo.value.trim();
+
+    if (!marca || !modelo) return;
+
+    try {
+        const termino = encodeURIComponent(`${marca} ${modelo}`);
+        const url = `https://www.carimagery.com/api.asmx/GetImageUrl?searchTerm=${termino}`;
+
+        const res = await fetch(url);
+        const xml = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(xml, 'text/xml');
+        const imgUrl = doc.getElementsByTagName('string')[0]?.textContent;
+
+        if (imgUrl && imgUrl.startsWith('http')) {
+            AutoAPI.style.backgroundImage = `url('${imgUrl}')`;
+            AutoAPI.style.backgroundSize = 'cover';
+            AutoAPI.style.backgroundPosition = 'center';
+            
+            meGustaBtn.disabled = false; 
+
+        meGustaBtn.onclick = () => {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const favorito = { url: imgUrl, nombre: `${marca} ${modelo}` };
+
+    // Evitar duplicados por URL
+    if (!favoritos.some(f => f.url === imgUrl)) {
+        favoritos.push(favorito);
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        alert('Agregado a tus intereses');
+    }
+};
+
+        } else {
+            AutoAPI.style.backgroundImage = '';
+            meGustaBtn.disabled = true;
+            alert('No se encontró imagen para este modelo');
+        }
+    } catch (err) {
+        AutoAPI.style.backgroundImage = '';
+        meGustaBtn.disabled = true;
+        alert('Error al cargar imagen');
+    }
+});
