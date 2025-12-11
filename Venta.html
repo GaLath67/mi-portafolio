@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="Estilos/Venta.css">
+</head>
+<body style="background-color: #86868675;">
+ <button id="btnMenu">☰</button>
+    <header id="navegacion">
+    <img id="icono" src="Imagenes/logoT.png" alt="Logo Track or Truck">
+        
+        <h2 id="tituloTOT">
+            <span>Track</span>
+            <span>Or</span>
+            <span>Truck</span>
+        </h2>
+
+        <nav>
+ <ul id="opcionesBar">
+            <li><a href="Buscar.html"><img id="buscarimagen" src="Imagenes/Buscar.png">Buscar</a></li>
+            <li><a href="Intereses.html"><img id="tusintereses" src="Imagenes/Corazon.png">Tus intereses</a></li>
+            <li><a href="Direcciones.html"><img id="Dondecontrarlos" src="Imagenes/Mapa.png">Donde Encontrarlos</a></li>
+            <li><a href="Venta.html"><img id="Ventaimagen" src="Imagenes/Venta.png">Venta</a></li>
+            <li><a href="Contactanos.html"><img id="Contactanosimag" src="Imagenes/Contactos.png">Contactanos</a></li>
+            <li><a href="Registro.html"><img id="Loginfoto" src="Imagenes/Perfil.png"></a></li>
+        </ul>
+        </nav>
+    </header>
+<section id="SecVenta" style="background-color: #86868600; " >
+<h2 id="TituloMiAnuncio">Mi Anuncio</h2>
+<div id="DivMiAnuncioContenedor">
+    <div id="DivMiAnuncioImg"></div>
+    <form id="FormMiAnuncio">
+        <label>Modelo y Marca:</label>
+        <input id="InputModelo" type="text">
+        <label>Precio:</label>
+        <input id="InputPrecio" type="text">
+        <label>Descripción:</label>
+        <input id="InputDescripcion" type="text">
+        <label>Contacto:</label>
+        <input id="InputContacto" type="text">
+        <button type="button" id="GuardarBtn">Guardar</button>
+    </form>
+</div>
+
+<h2 id="TituloOtrosAnuncios">Otros anuncios</h2>
+<div id="DivCarrusel" >
+    <button id="prev" style="margin-left: 20px;" >◀</button>
+    <div  id="CarruselContenido" style="margin-left: 85px;">
+    </div>
+    <button id="next" style="margin-left: 40px; margin-top: 20px;">▶</button>
+</div>
+<footer id="pie">
+    <div id="contPie">
+
+        <div id="linksPie">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Políticas de Privacidad</a>
+            <a href="#">Mapa del Sitio</a>
+        </div>
+
+        <div id="infoPie">
+            <p>© 2025 TrackOrTruck. All rights reserved.</p>
+            <p>TrackOrTruck es una plataforma dedicada a la búsqueda, comparación y consulta de autos. Los datos pueden variar según el mercado.</p>
+            <p>Para publicar un vehículo o solicitar información personalizada, utiliza nuestro formulario de contacto.</p>
+        </div>
+
+    </div>
+</footer>
+</section>
+<script src="Java/Venta.js"></script>
+    
+</body>
+</html>
