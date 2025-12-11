@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="Estilos/Buscar.css">
 </head>
-<body>
+<body style="background-color: #8686863a;">
+<button id="btnMenu">☰</button>
+
+<header id="navegacion">
     
+    <img id="icono" src="Imagenes/logoT.png" alt="Logo Track or Truck">
+    
+    <h2 id="tituloTOT">
+        <span>Track</span>
+        <span>Or</span>
+        <span>Truck</span>
+    </h2>
+
+    <nav>
+        <ul id="opcionesBar">
+            <li><a href="Buscar.html"><img id="buscarimagen" src="Imagenes/Buscar.png">Buscar</a></li>
+            <li><a href="Intereses.html"><img id="tusintereses" src="Imagenes/Corazon.png">Tus intereses</a></li>
+            <li><a href="Direcciones.html"><img id="Dondecontrarlos" src="Imagenes/Mapa.png">Donde Encontrarlos</a></li>
+            <li><a href="Venta.html"><img id="Ventaimagen" src="Imagenes/Venta.png">Venta</a></li>
+            <li><a href="Contactanos.html"><img id="Contactanosimag" src="Imagenes/Contactos.png">Contactanos</a></li>
+            <li><a href="Registro.html"><img id="Loginfoto" src="Imagenes/Perfil.png"></a></li>
+        </ul>
+    </nav>
+</header>
+<div id="backgroundCars"></div>
+<section id="buscInp">
+    <h2 id="titBusc">Busca un modelo de tu interés</h2>
+    <div style="display:flex; gap:10px;">
+        <input id="inpBusc" type="text" placeholder="Ingresa la marca..." list="marcasDisponibles">
+        <input id="inpModelo" type="text" placeholder="Ingresa el modelo..." style="display:none;">
+    </div>
+    <datalist id="marcasDisponibles">
+        <option value="Toyota">
+        <option value="Honda">
+        <option value="Hyundai">
+        <option value="Ford">
+        <option value="Chevrolet">
+        <option value="Nissan">
+        <option value="Kia">
+        <option value="Volkswagen">
+        <option value="Suzuki">
+        <option value="Renault">
+    </datalist>
+
+<article id="FondoA">
+    <div id="AutoAPI"></div>
+</article>
+
+<button id="meGusta">Me gusta</button>
+</section>
+
+<section id="datosSec">
+    <h3 id="titDatos">Modelos Disponibles</h3>
+    <div id="contDatos">
+        <ul id="listaDatos">
+        </ul>
+    </div>
+</section>
+<footer id="pie">
+    <div id="contPie">
+
+        <div id="linksPie">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Políticas de Privacidad</a>
+            <a href="#">Mapa del Sitio</a>
+        </div>
+
+        <div id="infoPie">
+            <p>© 2025 TrackOrTruck. All rights reserved.</p>
+            <p>TrackOrTruck es una plataforma dedicada a la búsqueda, comparación y consulta de autos. Los datos pueden variar según el mercado.</p>
+            <p>Para publicar un vehículo o solicitar información personalizada, utiliza nuestro formulario de contacto.</p>
+        </div>
+
+    </div>
+</footer>
+<script src="Java/Buscar.js"></script>
 </body>
 </html>
+
